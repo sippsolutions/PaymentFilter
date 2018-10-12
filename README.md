@@ -32,7 +32,7 @@ Magento doesn't support database updates on uninstalls to remove attributes.
 
 To fix the error, execute the following SQL:
 
-    DELETE FROM `eav_attribute` WHERE attribute_code = 'product_payment_methods';
+    DELETE FROM `eav_attribute` WHERE attribute_code IN ('product_payment_methods', 'allowed_payment_methods');
     DELETE FROM `core_resource` WHERE code = 'payfilter_setup';
     ALTER TABLE `customer_group` DROP `allowed_payment_methods`;
 
